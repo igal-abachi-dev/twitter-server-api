@@ -41,3 +41,5 @@ export class User {
 	@Column()
 	birth_year: number;//*
 }
+
+//password hash , salt

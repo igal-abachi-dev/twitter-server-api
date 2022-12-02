@@ -42,4 +42,25 @@ export class User {
 	birth_year: number;//*
 }
 
-//password hash , salt
+//password hash , salt , email , phone_number?
+//Argon2id
+
+//use passport-jwt? Auth0, https://auth0.com/pricing
+//free for up to 7k USERS
+
+
+//body-parser , jsonwebtoken , nodemailer , libphonenumber-js
+
+//https://supertokens.com/ ,  https://github.com/supertokens
+//https://supertokens.com/docs/emailpassword/architecture
+
+//Firebase Auth , Supabase Auth
+
+//okta
+
+//AWS Cognito with aws-amplify package and works like a charm.
+//
+// Easy like:
+//
+// import {Auth} from "aws-amplify";
+// await Auth.signIn(username, password);

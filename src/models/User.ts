@@ -18,6 +18,15 @@ export class User {
 	name: string;//friendly name
 
 	@Column()
+	email: string;//<256 , encrypted?
+
+	@Column()
+	password_hash: string;//*, 108-120
+
+	@Column()
+	password_salt: string;//*, 24-30
+
+	@Column()
 	description: string;
 
 	@Column()
@@ -48,13 +57,25 @@ export class User {
 //use passport-jwt? Auth0, https://auth0.com/pricing
 //free for up to 7k USERS
 
+//best Firebase / keycloack
+
 
 //body-parser , jsonwebtoken , nodemailer , libphonenumber-js
 
 //https://supertokens.com/ ,  https://github.com/supertokens
 //https://supertokens.com/docs/emailpassword/architecture
 
-//Firebase Auth , Supabase Auth
+//Firebase Auth , Supabase Auth , Keycloak
+
+//https://github.com/ory/kratos
+
+//https://webauthn.io/
+//https://simplewebauthn.dev/
+//https://try-webauthn.appspot.com/
+
+
+//keycloak , more secure the firebase probably?
+//https://hasura.io/learn/graphql/hasura-authentication/integrations/keycloak/
 
 //okta
 

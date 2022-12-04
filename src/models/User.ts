@@ -51,8 +51,13 @@ export class User {
 	birth_year: number;//*
 }
 
-//password hash , salt , email , phone_number?
+//phone_number?
 //Argon2id
+
+//https://github.com/tuupola/branca-js  (jwt alternative)
+//https://branca.io/
+//https://github.com/mikenicholson/passport-jwt  (do similar for branca-messagepack)
+
 
 //use passport-jwt? Auth0, https://auth0.com/pricing
 //free for up to 7k USERS

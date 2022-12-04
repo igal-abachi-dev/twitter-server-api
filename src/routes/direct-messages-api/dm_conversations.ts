@@ -25,7 +25,7 @@ async function dm_conversations_Routes (fastify) {//dm_conversations/
 		res.send(new CreateDmEventResponse());
 		//CreateDmEventResponseData DmConversationIdCreate([FromBody]CreateDmConversationRequest body)
 	});
-	fastify.post('/with/{participant_id}/messages', async (req, res) => {//DmConversationWithUserEventIdCreate
+	fastify.post('/with/:participant_id/messages', async (req, res) => {//DmConversationWithUserEventIdCreate
 		req.log.info('Creates a new message for a DM Conversation with a participant user by ID',req.body as CreateTextMessageRequest);
 		//req.params.participant_id
 		const products = await fastify.db.products.save(req.body);

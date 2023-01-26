@@ -21,7 +21,7 @@ export class Tweet {
 	in_reply_to_user_id: string;
 
 	@Column()
-	text: string;//*  , < 420 char ,  utf8, const invalidCharsGroup = /\uFFFE\uFEFF\uFFFF/;
+	text: string;//*  , < 420 char(new limit: <4000 parent post only) ,  utf8, const invalidCharsGroup = /\uFFFE\uFEFF\uFFFF/;
 
 	//FFFE NONCHARACTER
 	//FEFF ZERO WIDTH NO-BREAK SPACE
@@ -40,7 +40,13 @@ export class Tweet {
 	lang: string;//BCP47 tag
 
 	@Column()
-	possibly_sensitive: boolean;
+	possibly_sensitive: boolean;//not g rated
+
+	@Column()
+	possibly_spam: boolean;//or bot
+
+	@Column()
+	possibly_fakenews: boolean;
 
 	@Column()
 	long_tweet: boolean; // >420 char , short is < 280 char
@@ -59,5 +65,5 @@ export class Tweet {
 
 	@CreateDateColumn()
 	created_at: string;
-
+//created_at: Math.floor(Date.now() / 1000),
 }

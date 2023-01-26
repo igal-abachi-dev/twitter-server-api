@@ -18,6 +18,9 @@ export class TweetMetrics {
 	like_count: number;//*
 
 	@Column()
+	view_count: number;//  Impressions
+
+	@Column()
 	quote_count: number;
 
 	@Column()

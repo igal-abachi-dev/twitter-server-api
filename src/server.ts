@@ -37,7 +37,7 @@ fastify.register(fastifyCompress, {
 	//@marko/tags-api-preview
 
 
-	await fastify.register(require('../src/routes/health'), { prefix: '/health' });
+	await fastify.register(require('../src/routes/health'), { prefix: '/health' });//no prefix
 	await fastify.register(require('../src/routes/product'), { prefix: '/product' });
 
 	//https://api.twitter.com/2

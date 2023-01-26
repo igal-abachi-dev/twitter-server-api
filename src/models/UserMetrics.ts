@@ -26,6 +26,9 @@ export class UserMetrics {
 	@Column()
 	like_count: number;
 
+	@Column()
+	profile_visit_count: number;//views
+
 	@CreateDateColumn()
 	last_online_visit: string;//to fetch timeline for new items since last visit
 }

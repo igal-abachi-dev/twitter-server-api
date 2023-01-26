@@ -1,48 +1,18 @@
-async function productRoutes (fastify) {
-	fastify.get('/:_id', async (req, res) => {
-		req.log.info('get one products from db');
+import {User} from '../../models/User';
+
+async function users_api_tweets_Routes (fastify) {
+	fastify.get('/tweets/:_id/retweeted_by', async (req, res) => {//TweetsIdRetweetingUsers
+		req.log.info('User objects that have retweeted the provided Tweet ID');
 		const product = await fastify.db.products.findOne(req.params._id);
-		res.send(product);
+		res.send([] as User[]);
+		//List<User> TweetsIdRetweetingUsers([FromRoute][Required]string id)
 	});
-
-	fastify.get('/', async (req, res) => {
-		req.log.info('list products from db');
-		const products = await fastify.db.products.find();
-		res.send(products);
-	});
-
-	fastify.post('/', async (req, res) => {
-		req.log.info('Add products to db');
-		const products = await fastify.db.products.save(req.body);
-		res.status(201).send(products);
-	});
-
-	fastify.put('/:_id', async (req, res) => {
-		req.log.info('Update product to db');
-		const _id = req.params._id;
-		const products = await fastify.db.products.save({ _id, ...req.body });
-		res.status(200).send(products);
-	});
-
-	fastify.delete('/:_id', async (req, res) => {
-		req.log.info(`delete product ${req.params._id} from db`);
+	fastify.get('/tweets/:_id/liking_users', async (req, res) => {//TweetsIdLikingUsers
+		req.log.info('User objects that have liked the provided Tweet ID');
 		const product = await fastify.db.products.findOne(req.params._id);
-		await fastify.db.products.remove(product);
-		res.code(200).send({});
+		res.send([] as User[]);
+		//List<User> TweetsIdLikingUsers([FromRoute][Required]string id)
 	});
 }
 
-module.exports = productRoutes;
-/*
-
-User objects that have retweeted the provided Tweet ID
-    GET /tweets/{id}/retweeted_by
-List<User> TweetsIdRetweetingUsers([FromRoute][Required]string id)
-
-
-User objects that have liked the provided Tweet ID
-    GET /tweets/{id}/liking_users
-List<User> TweetsIdLikingUsers([FromRoute][Required]string id)
-  
-
-*/
+module.exports = users_api_tweets_Routes;

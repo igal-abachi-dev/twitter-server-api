@@ -27,10 +27,18 @@ export class User {
 	password_salt: string;//*, 24-30
 
 	@Column()
+	failed_logins_count: number;// < 5
+
+	@Column()
+	blocked:boolean;
+
+	//last key rotation date? every month
+
+	@Column()
 	description: string;
 
 	@Column()
-	profile_image_url: string;
+	profile_image_url: string;//gravatar
 
 	@Column()
 	protected: boolean;//tweets are private
